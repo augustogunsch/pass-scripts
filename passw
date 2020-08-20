@@ -1,0 +1,9 @@
+#!/bin/sh
+olddir=$(pwd)
+cd "$HOME/.password-store"
+sitename="$(find . -type f -name '*.gpg' | sed -E 's|^\./(.*)\.gpg|\1|' | fzf)"
+if [ ! $sitename = "" ]; then
+	pass "$sitename"
+	pass -c "$sitename"
+fi
+cd "$olddir"

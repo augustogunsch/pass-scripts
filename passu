@@ -1,0 +1,7 @@
+#!/bin/sh
+olddir=$(pwd)
+cd "$HOME/.password-store"
+echo "Atualizando senhas..."
+DUMMY=$(torsocks git pull 2>&1)
+DUMMY=$(torsocks git push 2>&1)
+cd "$olddir"

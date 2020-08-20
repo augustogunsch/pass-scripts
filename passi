@@ -1,0 +1,10 @@
+#!/bin/sh
+mydir="$(dirname "$0")"
+
+"$mydir/passu"
+
+read -p 'Insira o nome da senha: ' name
+user="$(ls -1 "$HOME/.password-store" | fzf)"
+
+pass insert "$user/$name"
+"$mydir/passu"
