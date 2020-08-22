@@ -1,0 +1,9 @@
+#!/bin/sh
+mydir="$(dirname "$0")"
+
+"$mydir/passu"
+
+user="$(ls -1 "$HOME/.password-store" | fzf)"
+
+pass delete "$user/$name"
+"$mydir/passu"
