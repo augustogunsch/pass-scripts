@@ -6,5 +6,5 @@ mydir=$(dirname "$0")
 read -p 'Insira o nome da senha: ' name
 user=$(ls -1 "$HOME/.password-store" | fzf)
 
-pass insert "$user/$name"
+pass generate "$user/$name"
 "$mydir/passu"
