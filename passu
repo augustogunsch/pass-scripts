@@ -1,7 +1,0 @@
-#!/bin/sh
-olddir=$(pwd)
-cd "$HOME/.password-store"
-echo "Atualizando senhas..."
-DUMMY=$(git pull 2>&1)
-DUMMY=$(git push 2>&1)
-cd "$olddir"

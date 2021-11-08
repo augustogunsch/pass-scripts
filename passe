@@ -1,12 +1,4 @@
 #!/bin/sh
-olddir=$(pwd)
-mydir=$(dirname "$0")
 cd "$HOME/.password-store"
-sitename="$(find . -type f -name '*.gpg' | sed -E 's|^\./(.*)\.gpg|\1|' | fzf)"
-if [ ! $sitename = "" ]; then
-	"$mydir/passu"
-	pass edit "$sitename"
-	"$mydir/passu"
-fi
-cd "$olddir"
-
+PASS="$(find . -type f -name '*.gpg' | sed -E 's|^\./(.*)\.gpg|\1|' | fzf)"
+[ -n "$PASS" ] && pass edit "$PASS"

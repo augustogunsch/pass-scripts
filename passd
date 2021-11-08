@@ -1,11 +1,4 @@
 #!/bin/sh
-olddir=$(pwd)
-mydir=$(dirname "$0")
-"$mydir/passu"
 cd "$HOME/.password-store"
-sitename="$(find . -type f -name '*.gpg' | sed -E 's|^\./(.*)\.gpg|\1|' | fzf)"
-if [ ! $sitename = "" ]; then
-	pass delete "$sitename"
-fi
-cd "$olddir"
-"$mydir/passu"
+PASS="$(find . -type f -name '*.gpg' | sed -E 's|^\./(.*)\.gpg|\1|' | fzf)"
+[ -n "$PASS" ] && pass delete "$PASS"
